@@ -1,0 +1,425 @@
+/* =======================
+   Base + Variables
+======================= */
+:root {
+  --bg: #f9f9f9;
+  --light: #2b2b2b;
+  --accent: #005a46;
+  --muted: #757575;
+  --shadow: 0 6px 22px rgba(0,0,0,0.06);
+  --card-radius: 14px;
+  --easing: cubic-bezier(.25,.1,.25,1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--light);
+}
+
+/* =======================
+   Layout Structure
+======================= */
+
+.about {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+
+/* Consistent card component */
+.card,
+.service,
+.skill,
+.project,
+.testimonial,
+.blog-card,
+.stat,
+.exp-item {
+  background: #fff;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+/* =======================
+   HERO
+======================= */
+
+.hero-inner {
+  display: flex;
+  gap: 18px;
+  padding: 28px;
+  border-radius: var(--card-radius);
+  background: linear-gradient(180deg, rgba(0,90,70,0.04), rgba(0,90,70,0.02));
+  box-shadow: var(--shadow);
+}
+
+.name {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+}
+
+.typewriter {
+  font-size: 44px;
+  font-weight: 800;
+  margin: 20px 0;
+  line-height: 1;
+  background: linear-gradient(90deg, var(--accent), #2b9c97);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.lead {
+  width: 52ch;
+  margin: 20px 0;
+  color: var(--muted);
+}
+
+/* CTA Buttons */
+.cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 6px 18px rgba(0,90,70,0.14);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+  border-color: rgba(0,90,70,0.12);
+}
+
+/* Social Icons */
+.socials {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.socials a {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* =======================
+   PORTRAIT
+======================= */
+.portrait {
+  padding-left: 20%;
+}
+
+.portrait .frame {
+  width: 300px;
+  height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: #fafafa;
+  box-shadow: var(--shadow);
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.03);
+  transition: transform .9s var(--easing);
+}
+
+.portrait .frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,90,70,0.06), transparent);
+  pointer-events: none;
+}
+
+.portrait:hover img {
+  transform: translateY(-6px) scale(1.06);
+}
+
+/* =======================
+   SECTION WRAPPER
+======================= */
+.section {
+  margin-top: 60px;
+  padding: 28px;
+  background: #fff;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+}
+
+.section h2 {
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+
+.underline {
+  width: 68px;
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent), #2b9c97);
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+.section .center {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* =======================
+   TWO COLUMN LAYOUT
+======================= */
+
+.two-col {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 28px;
+  margin-top: 28px;
+  align-items: center;
+}
+
+.heading-sm {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* =======================
+   STATS
+======================= */
+.stats {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.stat .num {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.stat .label {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* =======================
+   EXPERIENCE TIMELINE
+======================= */
+.experience {
+  display: grid;
+  grid-template-columns: 1fr 14px 1fr;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.timeline {
+  position: relative;
+  padding: 14px 8px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  transform: translateX(-50%);
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent), #2b9c97);
+  border-radius: 8px;
+}
+
+.exp-date {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* =======================
+   SERVICES
+======================= */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.service .icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: linear-gradient(45deg,#eaf7f3,#fff);
+  font-size: 18px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+/* =======================
+   SKILLS
+======================= */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.skill .bar {
+  height: 10px;
+  background: #eee;
+  border-radius: 10px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.skill .bar span {
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  background: linear-gradient(90deg,var(--accent),#2b9c97);
+  width: 0%;
+  transition: width .9s var(--easing);
+}
+
+/* =======================
+   PROJECTS
+======================= */
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.project img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: rgba(0,90,70,0.08);
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+/* =======================
+   TESTIMONIALS
+======================= */
+.test-row {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* =======================
+   BLOG
+======================= */
+.blog {
+  margin-top: 18px;
+}
+
+/* =======================
+   CTA Section
+======================= */
+.cta-cta {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 18px;
+  background: linear-gradient(180deg,#fff,#fbfbfb);
+  border-radius: var(--card-radius);
+  margin-top: 20px;
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media (max-width: 980px) {
+
+  .hero-inner {
+    flex-direction: column;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .experience {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .project-row {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait {
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+a{
+  text-decoration: none;
+}
